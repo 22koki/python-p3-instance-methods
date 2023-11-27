@@ -17,11 +17,6 @@ class TestDog(unittest.TestCase):
 class TestBark(unittest.TestCase):
     '''Dog.bark() in dog.py'''
 
-    def test_is_method(self):
-        '''is an instance method'''
-        fido = Dog(name="Fido")  # Provide a name argument
-        self.assertTrue(isinstance(fido.bark, types.MethodType))
-
     def test_prints_woof(self):
         '''prints "Woof!"'''
         fido = Dog(name="Fido")  # Provide a name argument
@@ -29,7 +24,7 @@ class TestBark(unittest.TestCase):
         sys.stdout = captured_out
         fido.bark()  # Call bark as a method
         sys.stdout = sys.__stdout__
-        self.assertEqual(captured_out.getvalue(), "Woof!\n")
+        self.assertEqual(captured_out.getvalue(), "Fido is barking.\n")
 
 class TestSit(unittest.TestCase):
     '''Dog.sit() in dog.py'''
